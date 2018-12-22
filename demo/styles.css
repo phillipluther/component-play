@@ -4,6 +4,7 @@ html {
 }
 
 body {
+    background: #f0f0f0;
     font-family: sans-serif;
     line-height: 1.5rem;
     max-width: 720px;
@@ -31,31 +32,16 @@ body {
     color: #666;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p {
+p + p {
+    margin-top: 1.5rem;
+}
+
+.pageTitle,
+.sectionHeading,
+.sectionSubHeading {
     margin-bottom: 1.5rem;
 }
 
-h1,
-p {
+.pageTitle {
     margin-top: 0;
-}
-
-h2:not(:first-child) {
-    margin-top: 3rem;
-}
-
-h3:not(:first-child) {
-    margin-top: 2.25rem;
-}
-
-h4,
-h5,
-h6 {
-    margnin-top: 1.5rem;
 }

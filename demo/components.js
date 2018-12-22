@@ -1,3 +1,5 @@
+
+(function(l, i, v, e) { v = l.createElement(i); v.async = 1; v.src = '//' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1'; e = l.getElementsByTagName(i)[0]; e.parentNode.insertBefore(v, e)})(document, 'script');
 (function () {
     'use strict';
 
@@ -17,7 +19,7 @@
         }
     }
 
-    const STYLES = {
+    const BUTTON_STYLES = {
         common: `
         button {
             position: relative;
@@ -31,7 +33,7 @@
         button[disabled],
         button[disabled]:hover {
             box-shadow: none;
-            background: #fff;
+            background: #f0f0f0;
             border-color: #b9b9b9;
             color: #a9a9a9;
         }
@@ -39,12 +41,12 @@
         basic: `
         button {
             border-color: #b9b9b9;
-            background: #f0f0f0;
+            background: white;
             color: #191919;
         }
 
         button:hover {
-            background: #fff;
+            background: #f9f9f9;
         }
     `,
         primary: `
@@ -113,7 +115,7 @@
 
         constructor() {
             super();
-            let {common, basic, primary, small, normal, large} = STYLES;
+            let {common, basic, primary, small, normal, large} = BUTTON_STYLES;
             let styles = common;
             let button = this._el = document.createElement('button');
             button.innerHTML = this.innerHTML;
@@ -141,6 +143,69 @@
             } else {
                 this.disabled = false;
             }
+        }
+    });
+
+    const CARD_TEMPLATE = document.createElement('template');
+    CARD_TEMPLATE.innerHTML = `
+    <div class="card">
+        <slot class="card-image" name="image"></slot>
+        <slot class="card-title" name="title"></slot>
+        <slot>Card content</slot>
+        <slot class="card-link" name="link"></slot>
+    </div>
+`;
+
+    const CARD_STYLES = {
+        common: `
+        .card {
+            display: flex;
+            flex-direction: column;
+            background: white;
+            padding: 1.728rem;
+            box-shadow: 0 2px 2px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-title::slotted(*) {
+            color: darkgreen;
+            margin-top: 0;
+        }
+
+        .card-image::slotted(*) {
+            display: block;
+            width: 100%;
+            max-height: 12rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .card-link::slotted(*) {
+            margin-bottom: 0;
+            color: #456789;
+        }
+
+        .card-link::slotted(*):hover {
+            color: #123456;
+        }
+    `,
+        centered: `
+        .card { align-items: center; }
+    `,
+        left: `
+        .card { align-items: left; }
+    `
+    };
+
+    customElements.define('p-card', class extends Component {
+        constructor() {
+            super();
+
+            let {common, centered, left} = CARD_STYLES;
+            let styles = common;
+
+            styles += this.getAttribute('align') === 'left' ? left : centered;
+
+            this.style(styles);
+            this.root.appendChild(CARD_TEMPLATE.content.cloneNode(true));
         }
     });
 

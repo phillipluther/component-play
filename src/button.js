@@ -1,6 +1,6 @@
 import Component from './Component';
 
-const STYLES = {
+const BUTTON_STYLES = {
     common: `
         button {
             position: relative;
@@ -14,7 +14,7 @@ const STYLES = {
         button[disabled],
         button[disabled]:hover {
             box-shadow: none;
-            background: #fff;
+            background: #f0f0f0;
             border-color: #b9b9b9;
             color: #a9a9a9;
         }
@@ -22,12 +22,12 @@ const STYLES = {
     basic: `
         button {
             border-color: #b9b9b9;
-            background: #f0f0f0;
+            background: white;
             color: #191919;
         }
 
         button:hover {
-            background: #fff;
+            background: #f9f9f9;
         }
     `,
     primary: `
@@ -96,7 +96,7 @@ customElements.define('p-button', class extends Component {
 
     constructor() {
         super();
-        let {common, basic, primary, small, normal, large} = STYLES;
+        let {common, basic, primary, small, normal, large} = BUTTON_STYLES;
         let styles = common;
         let button = this._el = document.createElement('button');
         button.innerHTML = this.innerHTML;

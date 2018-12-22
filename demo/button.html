@@ -2,12 +2,12 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Button</title>
+        <title>Buttons</title>
         <link rel="stylesheet" href="styles.css">
     </head>
 
     <body>
-        <h1>Buttons</h1>
+        <h1 class="pageTitle">Buttons</h1>
 
         <div class="demo">
             <h2>Basic Button</h2>
@@ -15,7 +15,6 @@
                 <p class="block-title">Standard</p>
                 <p-button>Basic Button</p-button>
                 <p-button disabled>Disabled Basic</p-button>
-                <p-button id="basic">Click Me</p-button>
             </div>
             <div class="block">
                 <p class="block-title">Large</p>
@@ -30,12 +29,11 @@
         </div>
 
         <div class="demo">
-            <h2>Primary Button</h2>
+            <h2 class="sectionHeading">Primary Button</h2>
             <div class="block">
                 <p class="block-title">Standard</p>
                 <p-button primary>Primary Button</p-button>
                 <p-button primary disabled>Disabled Primary</p-button>
-                <p-button primary id="primary">Click Me</p-button>
             </div>
             <div class="block">
                 <p class="block-title">Large</p>
@@ -49,13 +47,36 @@
             </div>
         </div>
 
+        <div class="demo">
+            <h2 class="sectionHeading">With onClick and Changing Attributes</h2>
+
+            <div class="block">
+                <p-button id="btn1">Click Me!</p-button>
+                <p-button id="btn2">No, Click Me!</p-button>
+
+            </div>
+        </div>
+
         <script src="components.js"></script>
         <script>
-            let primaryButton = document.getElementById('primary');
-            let basicButton = document.getElementById('basic');
+            let btn1 = document.getElementById('btn1');
+            let btn2 = document.getElementById('btn2');
 
-            basicButton.onClick = () => alert('I have a click handler attached!');
-            primaryButton.onClick = () => alert('I have a click handler attached!');
+            btn1.onClick = () => {
+                btn1.disabled = true;
+                btn2.disabled = false;
+
+                btn1._el.innerHTML = "Thank You";
+                btn2._el.innerHTML = "Now Click Me";
+            }
+
+            btn2.onClick = () => {
+                btn1.disabled = false;
+                btn2.disabled = true;
+
+                btn1._el.innerHTML = "Click Me Now";
+                btn2._el.innerHTML = "Thank You";
+            }
         </script>
     </body>
 </html>

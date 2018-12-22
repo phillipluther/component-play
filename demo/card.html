@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Cards</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+
+    <body>
+        <h1 class="pageTitle">Cards</h1>
+
+        <div class="demo">
+            <div class="block">
+                <p class="block-title">Vanilla Card (nothing slotted)</p>
+                <p-card>
+                    <p>This is my card content</p>
+                </p-card>
+            </div>
+
+            <div class="block">
+                <p class="block-title">Title Slot</p>
+                <p-card>
+                    <h2 slot="title">Cards Are Fun and Cool</h2>
+                </p-card>
+            </div>
+
+            <div class="block">
+                <p class="block-title">Title and Image Slots</p>
+                <p-card>
+                    <h2 slot="title">Cards Are Fun and Cool</h2>
+                    <img src="https://media.giphy.com/media/7sRMjntXYEITu/giphy.gif" slot="image">
+                </p-card>
+            </div>
+
+            <div class="block">
+                <p class="block-title">Title, Image, and Link Slots</p>
+                <p-card>
+                    <h2 slot="title">Cards Are Fun and Cool</h2>
+                    <img src="https://media.giphy.com/media/7sRMjntXYEITu/giphy.gif" slot="image">
+                    <a href="#" slot="link">Call to Action</a>
+                </p-card>
+            </div>
+
+            <div class="block">
+                <p class="block-title">All Slots + Custom Content</p>
+                <p-card>
+                    <h2 slot="title">Cards Are Fun and Cool</h2>
+                    <img src="https://media.giphy.com/media/7sRMjntXYEITu/giphy.gif" slot="image">
+                    <p>
+                        Here's some custom content put into the card. It's a simple paragraph tag
+                        but could be anything. It shows up under the title and above the link.
+                    </p>
+                    <a href="#" slot="link">Call to Action</a>
+                </p-card>
+            </div>
+
+        </div>
+
+        <script src="components.js"></script>
+    </body>
+</html>
