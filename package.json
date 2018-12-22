@@ -12,7 +12,7 @@
     "type": "git",
     "url": "git+https://github.com/phillipluther/component-play.git"
   },
-  "keywords": [],
+  "keywords": ["web", "components", "ui"],
   "author": "Phillip Luther <dev@phillipluther.com>",
   "license": "MIT",
   "bugs": {

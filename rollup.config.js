@@ -14,7 +14,7 @@ export default {
     plugins: [
         nodeResolve(),
         DEV && serve({
-            contentBase: 'demo',
+            contentBase: './',
             port: 8080
         }),
         DEV && livereload({
