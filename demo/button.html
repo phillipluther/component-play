@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Button</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+
+    <body>
+        <h1>Buttons</h1>
+
+        <div class="demo">
+            <h2>Basic Button</h2>
+            <div class="block">
+                <p class="block-title">Standard</p>
+                <p-button>Basic Button</p-button>
+                <p-button disabled>Disabled Basic</p-button>
+                <p-button id="basic">Click Me</p-button>
+            </div>
+            <div class="block">
+                <p class="block-title">Large</p>
+                <p-button large>Basic Button</p-button>
+                <p-button large disabled>Disabled Large</p-button>
+            </div>
+            <div class="block">
+                <p class="block-title">Small</p>
+                <p-button small>Small Basic Button</p-button>
+                <p-button small disabled>Disabled Small</p-button>
+            </div>
+        </div>
+
+        <div class="demo">
+            <h2>Primary Button</h2>
+            <div class="block">
+                <p class="block-title">Standard</p>
+                <p-button primary>Primary Button</p-button>
+                <p-button primary disabled>Disabled Primary</p-button>
+                <p-button primary id="primary">Click Me</p-button>
+            </div>
+            <div class="block">
+                <p class="block-title">Large</p>
+                <p-button large primary>Primary Button</p-button>
+                <p-button large primary disabled>Disabled Large</p-button>
+            </div>
+            <div class="block">
+                <p class="block-title">Small</p>
+                <p-button primary small>Primary Button</p-button>
+                <p-button primary small disabled>Disabled Small</p-button>
+            </div>
+        </div>
+
+        <script src="components.js"></script>
+        <script>
+            let primaryButton = document.getElementById('primary');
+            let basicButton = document.getElementById('basic');
+
+            basicButton.onClick = () => alert('I have a click handler attached!');
+            primaryButton.onClick = () => alert('I have a click handler attached!');
+        </script>
+    </body>
+</html>
