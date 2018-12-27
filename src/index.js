@@ -1,2 +1,2 @@
-import './button';
-import './card';
+// import './button';
+export {default as button} from './components/button';
