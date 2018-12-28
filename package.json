@@ -24,6 +24,6 @@
   },
   "homepage": "https://github.com/phillipluther/component-play#readme",
   "devDependencies": {
-    "lite-server": "^2.4.0",
+    "lite-server": "^2.4.0"
   }
 }

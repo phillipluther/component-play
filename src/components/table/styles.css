@@ -1,0 +1,26 @@
+.pTable {
+    font: inherit;
+    line-height: 1.5rem;
+    border-collapse: collapse;
+	border-spacing: 0;
+    width: 100%;
+}
+
+.pTable tbody tr {
+    border-top: 1px solid #c0c0c0;
+}
+
+.pTable th,
+.pTable td {
+    padding: 0.833rem;
+}
+
+.pTable th,
+.pTable td:not(.pTable--numeric) {
+    text-align: left;
+}
+
+.pTable th {
+    background: #303030;
+    color: white;
+}
