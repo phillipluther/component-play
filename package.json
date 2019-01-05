@@ -1,11 +1,12 @@
 {
   "name": "component-play",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Goofballin' around with web components",
   "main": "lib/index.js",
   "module": "es/index.js",
   "scripts": {
-    "dev": "lite-server",
+    "build": "cross-env NODE_ENV=production rollup -c",
+    "dev": "rollup -c -w",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -24,6 +25,13 @@
   },
   "homepage": "https://github.com/phillipluther/component-play#readme",
   "devDependencies": {
-    "lite-server": "^2.4.0"
+    "cross-env": "^5.2.0",
+    "precss": "^4.0.0",
+    "rollup": "^1.0.1",
+    "rollup-plugin-livereload": "^0.6.0",
+    "rollup-plugin-node-resolve": "^4.0.0",
+    "rollup-plugin-postcss": "^1.6.3",
+    "rollup-plugin-serve": "^0.6.1",
+    "rollup-plugin-terser": "^4.0.1"
   }
 }

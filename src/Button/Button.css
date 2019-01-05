@@ -1,0 +1,17 @@
+$testPadding: 8px 16px;
+
+:host {
+    display: inline-block;
+    border: 1px solid #a0a0a0;
+    border-radius: 3px;
+    background: #f0f0f0;
+    padding: $testPadding;
+    margin: 0;
+    cursor: default;
+
+    &(:hover) {
+        border-color: #101010;
+        background: #404040;
+        color: white;
+    }
+}
