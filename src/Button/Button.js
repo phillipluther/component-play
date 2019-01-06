@@ -1,58 +1,27 @@
-import Component from '../Component';
-import styles from './button.css';
+import {BaseMixin, FocusableMixin} from '../Component';
 
 
-export default class Button extends Component {
+const ButtonBase = BaseMixin(FocusableMixin(HTMLButtonElement));
 
-    static get observedAttributes() {
-        return ['disabled', 'tabindex'];
-    }
+export default class Button extends ButtonBase {
 
-    get disabled() {
-        return this.hasAttribute('disabled');
-    }
-
-    set disabled(isDisabled) {
-        if (isDisabled) {
-            this.setAttributes({
-                'aria-disabled': true,
-                disabled: ''
-            });
-
-        } else {
-            this.setAttributes({
-                'aria-disabled': false
-            });
-
-            this.removeAttribute('disabled');
-        }
-    }
-
-    attributeChangedCallback(attrName, previousVal, newVal) {
-        if ((attrName === 'disabled') && (previousVal !== null)) {
-            // console.log('previous', previousVal, newVal);
-            console.log('NAME:', attrName, 'PREV:', previousVal, 'NEW:', newVal)
-            // this.disabled = newVal;
-        }
+    connectedCallback() {
     }
 
     constructor() {
         super();
 
-        this.template = `
-            <style>${styles}</style>
-            <slot></slot>
-        `;
+        this.classList.add('xButton');
+        // this.test();
 
-        if (this.hasAttribute('disabled')) {
-            this.disabled = true;
-        }
+        console.log('NAME', this.constructor.name);
+        this.baseTest();
+        this.focusableTest();
 
-        this.setAttributes({
-            role: 'button',
-            tabindex: this.hasAttribute('tabindex') ? this.getAttribute('tabindex') : 0
+        this.defaultAttributes({
+            role: 'presentation'
         });
     }
 }
 
-window.customElements.define('x-button', Button);
+window.customElements.define('x-button', Button, { extends: 'button' });

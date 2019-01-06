@@ -5,8 +5,11 @@
   "main": "lib/index.js",
   "module": "es/index.js",
   "scripts": {
-    "build": "cross-env NODE_ENV=production rollup -c",
-    "dev": "rollup -c -w",
+    "build": "npm run clean && npm run build:html && npm run build:js",
+    "build:js": "cross-env NODE_ENV=production rollup -c",
+    "build:html": "mkdir -p examples && cp src/index.html examples/index.html",
+    "clean": "rm -rf examples",
+    "dev": "npm run clean && npm run build:html && rollup -c -w",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

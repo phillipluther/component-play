@@ -11,7 +11,7 @@ const ENV = process.env.NODE_ENV;
 export default {
     input: 'src/index.js',
     output: {
-        file: 'demo/index.js',
+        file: 'examples/index.js',
         format: 'iife',
         name: 'componentPlay'
     },
@@ -25,12 +25,12 @@ export default {
         }),
         // dev-specific
         ENV !== 'production' && serve({
-            contentBase: 'demo',
+            contentBase: 'examples',
             open: false,
             port: 8080
         }),
         ENV !== 'production' && livereload({
-            watch: 'demo'
+            watch: 'examples'
         }),
         // prod-specific
         ENV === 'production' && terser()
