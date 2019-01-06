@@ -17,6 +17,12 @@ export default class Component extends HTMLElement {
         }
     }
 
+    setAttributes(attributes) {
+        Object.keys(attributes).forEach(attrName => {
+            this.setAttribute(attrName, attributes[attrName]);
+        });
+    }
+
     connectedCallback() {
         this.shadowRoot.appendChild(this.template.content.cloneNode(true));
     }
