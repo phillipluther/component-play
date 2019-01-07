@@ -13,7 +13,8 @@ export default {
     output: {
         file: 'examples/index.js',
         format: 'iife',
-        name: 'componentPlay'
+        name: 'componentPlay',
+        sourcemap: true
     },
     plugins: [
         nodeResolve(),

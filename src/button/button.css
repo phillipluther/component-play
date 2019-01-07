@@ -1,0 +1,24 @@
+$testPadding: 0.5em 1em;
+
+:host {
+    background: linear-gradient(180deg, #f9f9f9, #d9d9d9);
+    border: 1px solid #a0a0a0;
+    border-radius: 3px;
+    cursor: default;
+    display: inline-block;
+    margin: 0;
+    padding: $testPadding;
+    text-align: center;
+
+    &(:hover) {
+        border-color: #191919;
+        background: #494949;
+        color: white;
+    }
+
+    &([disabled]) {
+        border-color: #c9c9c9;
+        background: #fff;
+        color: #b9b9b9;
+    }
+}
