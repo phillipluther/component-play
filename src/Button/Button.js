@@ -1,7 +1,9 @@
-import {BaseMixin, FocusableMixin} from '../component';
+import {BaseMixin, ClickableMixin, FocusableMixin} from '../component';
 
 
-const ButtonBase = BaseMixin(FocusableMixin(HTMLButtonElement));
+const ButtonBase = BaseMixin(
+    FocusableMixin(
+        ClickableMixin(HTMLButtonElement)));
 
 export default class Button extends ButtonBase {
 
@@ -18,7 +20,10 @@ export default class Button extends ButtonBase {
     constructor() {
         super();
 
-        this.classList.add('xButton');
+        this.classNames('xButton', {
+            'xButton--primary': this.getAttribute('variant') === 'primary',
+            'xButton--disabled': this.hasAttribute('disabled')
+        });
 
         this.defaultAttributes({
             role: 'presentation',
